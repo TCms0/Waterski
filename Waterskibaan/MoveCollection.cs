@@ -10,7 +10,7 @@ namespace Waterskibaan
     {
         public static List<IMoves> GetWillekeurigeMoves()
         {
-            //creates a random lenght (max 10) list with move objects
+           
             List<IMoves> moveslijst = new List<IMoves>();
             Random rand = new Random();
             int randomgetal = rand.Next(10);
