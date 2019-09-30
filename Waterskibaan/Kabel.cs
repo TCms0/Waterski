@@ -60,8 +60,7 @@ namespace Waterskibaan
             if (_lijnen.Last.Value.PositieOpDeKabel == 9)
             { 
                _lijnen.RemoveLast();
-              return _lijnen.Last();
-
+                return _lijnen.Last();
             }
             else
             {

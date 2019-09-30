@@ -23,13 +23,20 @@ namespace Waterskibaan
         {
             p.VerschuifLijnen();
 
-            p
+            Lijn q = p.VerwijderLijnVanKabel();
+
+            if (q != null)
+            {
+                Console.WriteLine(q);
+                voorraad.LijnToevoegenAanRij(q);
+            }
         }
         
         public string ToString()
         {
-            return d;
+            return $"Er zijn {voorraad.ToString()} lijnen op voorraad en er zijn {p.ToString()} Lijnen aan de kabel: ";
+
         }
-    
+
     }
 }

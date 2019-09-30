@@ -9,26 +9,20 @@ namespace Waterskibaan
 {
     class Sporter
     {
-        public int AantalRondenNogTeGaan
-        {
-            get { return AantalRondenNogTeGaan; }
-            set { AantalRondenNogTeGaan = 0; }
-        }
-        public Zwemvest Zwemvest
-        {
-            get {return Zwemvest; }
-            set {Console.WriteLine("Hekkie"); }
-        }
+        public int _aantalPT;
+        public int AantalRondenNogTeGaan { get;set;}
+        public Zwemvest Zwemvest{ get; set;}
         public Skies skies { get; set; }
         public Color KledingKleur { get; set; }
-        public List<IMoves> moves { get; set; }
+        public List<IMoves> Moves { get; set; }
 
         public Sporter(List<IMoves> moves)
         {
-            for (int x = 0; x < moves.Count; x++)
+            foreach (IMoves m in moves)
             {
-                Console.WriteLine(moves[x]);
+                _aantalPT +=  m.moves();
             }
+            Moves = moves;
         }
 
 

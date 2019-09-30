@@ -9,5 +9,8 @@ namespace Waterskibaan
     interface IMoves
     {
         int Move();
+        int Jump();
+        int Draailucht();
+        int VoetaanKabel();
     }
 }
