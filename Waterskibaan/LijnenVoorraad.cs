@@ -24,7 +24,7 @@ namespace Waterskibaan
             else
             {
                 Lijn l = _lijnen.Dequeue();
-                Console.WriteLine($"De voorraad is {l}");
+                Console.WriteLine($"De voorraad is {l.sp}");
                 return l;
             }
         }

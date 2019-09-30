@@ -50,14 +50,14 @@ namespace Waterskibaan
                 lijnverschuif.PositieOpDeKabel++;
             }
 
-            if (_lijnen.Last.Value.PositieOpDeKabel == 9){  
-            
+            if (_lijnen.Last.Value.PositieOpDeKabel == 9){
+                _lijnen.Last.Value.PositieOpDeKabel = 0;
             }
         }
 
                 public Lijn VerwijderLijnVanKabel()
             {
-            if (_lijnen.Last.Value.PositieOpDeKabel == 9)
+            if (_lijnen.Last.Value.PositieOpDeKabel == 9 && _lijnen.Last.Value.sp.AantalRondenNogTeGaan == 1)
             { 
                _lijnen.RemoveLast();
                 return _lijnen.Last();

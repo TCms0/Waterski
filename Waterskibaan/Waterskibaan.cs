@@ -13,7 +13,7 @@ namespace Waterskibaan
 
         public Waterskibaan()
         {
-            for(int i =0; i< 15; i++)
+            for (int i = 0; i < 15; i++)
             {
                 voorraad.LijnToevoegenAanRij(new Lijn());
             }
@@ -31,12 +31,36 @@ namespace Waterskibaan
                 voorraad.LijnToevoegenAanRij(q);
             }
         }
-        
-        public string ToString()
+
+        public override string ToString()
         {
             return $"Er zijn {voorraad.ToString()} lijnen op voorraad en er zijn {p.ToString()} Lijnen aan de kabel: ";
 
         }
 
+        public void SporterStart(Sporter sp)
+        {
+            if (sp.Skies != null && sp.Zwemvest != null)
+            {
+                if (p.IsStartPositieLeeg())
+                {
+                    Random r = new Random();
+                    int rondjes = r.Next(2);
+
+                    if (rondjes == 1) 
+                    { sp.AantalRondenNogTeGaan = 2; }
+                    else 
+                    { sp.AantalRondenNogTeGaan = 1; }
+
+                    Lijn skilijn = voorraad.VerwijderEersteLijn();
+                    skilijn.sp = sp;
+                    p.NeemLijnInGebruik(skilijn);
+                }
+            }
+            else
+            {
+                throw new System.Exception("Sporter heeft geen skies of zwemvest aan");
+            }
+        }
     }
 }
