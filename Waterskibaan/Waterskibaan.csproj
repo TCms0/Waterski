@@ -46,7 +46,9 @@
   <ItemGroup>
     <Compile Include="Kabel.cs" />
     <Compile Include="Lijn.cs" />
+    <Compile Include="LijnenVoorraad.cs" />
     <Compile Include="Skies.cs" />
+    <Compile Include="Waterskibaan.cs" />
     <Compile Include="Zwemvest.cs" />
     <Compile Include="IMoves.cs" />
     <Compile Include="Program.cs" />

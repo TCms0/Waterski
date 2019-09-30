@@ -16,7 +16,7 @@ namespace Waterskibaan
         {
             if (_lijnen.Count != 0)
             {
-                if (_lijnen.First.Value.PositieOpDeLijn == 0)
+                if (_lijnen.First.Value.PositieOpDeKabel == 0)
                 {
                     return false;
                 }
@@ -34,12 +34,12 @@ namespace Waterskibaan
         public void NeemLijnInGebruik(Lijn lijn){
            if (IsStartPositieLeeg())
             {
-                lijn.PositieOpDeLijn = 0;
+                lijn.PositieOpDeKabel = 0;
                 _lijnen.AddFirst(lijn);
             }
             else
             {
-                Console.WriteLine("Positie is vol!");
+                Console.WriteLine("Deze Positie is vol!");
             }
          }
 
@@ -47,22 +47,21 @@ namespace Waterskibaan
         {
             foreach (Lijn lijnverschuif in _lijnen)
             {
-                lijnverschuif.PositieOpDeLijn++;
+                lijnverschuif.PositieOpDeKabel++;
             }
 
-            if (_lijnen.Last.Value.PositieOpDeLijn == 9){  
+            if (_lijnen.Last.Value.PositieOpDeKabel == 9){  
             
             }
         }
 
                 public Lijn VerwijderLijnVanKabel()
             {
-            if (_lijnen.Last.Value.PositieOpDeLijn == 9) 
-            {
-                
-                _lijnen.RemoveLast();
+            if (_lijnen.Last.Value.PositieOpDeKabel == 9)
+            { 
+               _lijnen.RemoveLast();
+              return _lijnen.Last();
 
-                return _lijnen.Last;
             }
             else
             {
@@ -72,12 +71,12 @@ namespace Waterskibaan
 
         public override string ToString()
         {
-           string String = "";
+           string Ouput = "";
             foreach (Lijn lijn in _lijnen)
             {
-                String += (lijn.PositieOpDeLijn + "|");
+                Ouput += (lijn.PositieOpDeKabel + "|");
             }
-            return (String.TrimEnd('|') + ".");
+            return (Ouput.TrimEnd('|') + ".");
         }
     }
 }

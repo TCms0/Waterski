@@ -1,0 +1,6 @@
+C:\Users\Tristan\Source\Repos\Waterski\Waterskibaan\bin\Debug\Waterskibaan.exe.config
+C:\Users\Tristan\Source\Repos\Waterski\Waterskibaan\bin\Debug\Waterskibaan.exe
+C:\Users\Tristan\Source\Repos\Waterski\Waterskibaan\bin\Debug\Waterskibaan.pdb
+C:\Users\Tristan\Source\Repos\Waterski\Waterskibaan\obj\Debug\Waterskibaan.csprojAssemblyReference.cache
+C:\Users\Tristan\Source\Repos\Waterski\Waterskibaan\obj\Debug\Waterskibaan.exe
+C:\Users\Tristan\Source\Repos\Waterski\Waterskibaan\obj\Debug\Waterskibaan.pdb

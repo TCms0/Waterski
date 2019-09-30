@@ -1,15 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System;
-
 
 namespace Waterskibaan
 {
     class LijnenVoorraad
     {
-
         Queue<Lijn> _lijnen = new Queue<Lijn>();
 
         public void LijnToevoegenAanRij(Lijn lijn)
@@ -19,28 +17,26 @@ namespace Waterskibaan
 
         public Lijn VerwijderEersteLijn()
         {
-            if(LijnenVoorraad == 0)
+            if(_lijnen.Count == 0)
             {
                 return null;
             }
             else
             {
-                Console.WriteLine($"De voorraad is {LijnenVoorraad} lijnen");
+                Lijn l = _lijnen.Dequeue();
+                Console.WriteLine($"De voorraad is {l}");
+                return l;
             }
         }
 
-
         public int GetAantalLijnen()
         {
-            foreach(int r in _lijnen)
-            {
-                Console.WriteLine(r);
-            }
+            return _lijnen.Count;
         }
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"{_lijnen.Count()} Lijnen op Voorraad";
         }
     }
 }
