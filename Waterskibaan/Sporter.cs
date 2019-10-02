@@ -9,7 +9,7 @@ namespace Waterskibaan
 {
     class Sporter
     {
-        private Random random = new Random();
+        private readonly Random random = new Random();
         public int _aantalPT;
         public int AantalRondenNogTeGaan { get;set;}
         public Zwemvest Zwemvest{ get; set;}
@@ -21,7 +21,7 @@ namespace Waterskibaan
         {
             foreach (IMoves m in moves)
             {
-                _aantalPT +=  m.Move();
+                _aantalPT +=  m.Moves();
             }
             Color randomkleur = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
             KledingKleur = randomkleur;

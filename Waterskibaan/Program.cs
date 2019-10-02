@@ -8,11 +8,11 @@ namespace Waterskibaan
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[]args)
         {
-            //TestOpdr2();
-            //TestOpdr3();
-           // TestOpdr8();
+            TestOpdr2();
+            TestOpdr3();
+            TestOpdr8();
 
         }
 
@@ -32,6 +32,7 @@ namespace Waterskibaan
             k.NeemLijnInGebruik(l2);
             Console.WriteLine(k.ToString());
             k.VerschuifLijnen();
+            Console.WriteLine("--------------------------------------------- \n");
            
         }
 
@@ -51,6 +52,8 @@ namespace Waterskibaan
         
             voorraad.VerwijderEersteLijn();
             Console.WriteLine(voorraad.ToString());
+
+            Console.WriteLine("--------------------------------------------- \n");
         }
 
         private static void TestOpdr8()
@@ -60,7 +63,7 @@ namespace Waterskibaan
             Waterskibaan water = new Waterskibaan();        
             Skies skies = new Skies();
             Zwemvest zwemvest = new Zwemvest();
-           // s1.Zwemvest = zwemvest;
+            s1.Zwemvest = zwemvest;
             s1.Skies = skies;
             water.SporterStart(s1);
         }

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace Waterskibaan
 {
     class Move : IMoves
-    { 
-        Random random = new Random();
+    {
+        readonly Random random = new Random();
         int randomcijfer;
-        public int moves()
+        public int Moves()
         {
             randomcijfer = random.Next(4);
 
@@ -76,9 +76,6 @@ namespace Waterskibaan
             { return 0;}
         }
 
-        int IMoves.Move()
-        {
-            throw new NotImplementedException();
-        }
+  
     }
 }

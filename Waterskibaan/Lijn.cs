@@ -10,5 +10,10 @@ namespace Waterskibaan
     {
         public int PositieOpDeKabel{ get; set; }
         public Sporter sp { get; set; }
+
+        public void Addsporter(Sporter sport)
+        {
+            sp = sport;
+        }
     }
 }

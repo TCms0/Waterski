@@ -75,7 +75,7 @@ namespace Waterskibaan
             {
                 Ouput += (lijn.PositieOpDeKabel + "|");
             }
-            return (Ouput.TrimEnd('|') + ".");
+            return (Ouput.TrimEnd('|') );
         }
     }
 }

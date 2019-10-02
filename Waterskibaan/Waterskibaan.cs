@@ -44,17 +44,18 @@ namespace Waterskibaan
             {
                 if (p.IsStartPositieLeeg())
                 {
+
+                    Lijn l = new Lijn();
+                    p.NeemLijnInGebruik(l);
+                    l.Addsporter(sp);
+
                     Random r = new Random();
                     int rondjes = r.Next(2);
 
-                    if (rondjes == 1) 
+                    if (rondjes == 1)
                     { sp.AantalRondenNogTeGaan = 2; }
-                    else 
+                    else
                     { sp.AantalRondenNogTeGaan = 1; }
-
-                    Lijn skilijn = voorraad.VerwijderEersteLijn();
-                    skilijn.sp = sp;
-                    p.NeemLijnInGebruik(skilijn);
                 }
             }
             else
