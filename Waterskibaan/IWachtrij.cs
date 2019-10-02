@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Waterskibaan
 {
-    interface IWachtrij 
+    interface IWachtrij
     {
         void SporterNeemPlaatsInRIj(Sporter sp);
         List<Sporter> GetAlleSporters();
