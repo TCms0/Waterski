@@ -17,3 +17,9 @@ C:\Users\Tristan\Source\Repos\Waterski2\Waterskibaan\bin\Debug\Waterskibaan.pdb
 C:\Users\Tristan\Source\Repos\Waterski2\Waterskibaan\obj\Debug\Waterskibaan.csprojAssemblyReference.cache
 C:\Users\Tristan\Source\Repos\Waterski2\Waterskibaan\obj\Debug\Waterskibaan.exe
 C:\Users\Tristan\Source\Repos\Waterski2\Waterskibaan\obj\Debug\Waterskibaan.pdb
+C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\obj\Debug\Waterskibaan.csprojAssemblyReference.cache
+C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\obj\Debug\Waterskibaan.exe
+C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\obj\Debug\Waterskibaan.pdb
+C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\bin\Debug\Waterskibaan.exe.config
+C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\bin\Debug\Waterskibaan.exe
+C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\bin\Debug\Waterskibaan.pdb

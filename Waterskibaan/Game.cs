@@ -39,13 +39,13 @@ namespace Waterskibaan
                 waterskibaan.VerplaatsKabel();
                 Console.WriteLine("Kabel verplaatst");
                 waterskibaan.ToString();
-                Console.WriteLine("--------------------");
                 Thread.Sleep(1000);
                 wachtrijInstructie.ToString();
                 InstructieAfgelopen.ToString();
                 NieuweBezoeker.Invoke(new NieuweBezoekerArgs(new Sporter(MoveCollection.GetWillekeurigeMoves())));
                 Console.WriteLine(wachtrijInstructie.ToString());
                 Console.WriteLine(instructieGroep.ToString());
+                Console.WriteLine("--------------------");
             }
         }
 

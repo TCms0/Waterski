@@ -9,36 +9,40 @@ namespace Waterskibaan
     class WachtrijStarten : IWachtrij
     {
         public int MAX_LENGTE_RIJ = 20;
-        List<Sporter> sporterrij = new List<Sporter>();
+        private Queue<Sporter> sporterrij = new Queue<Sporter>();
         List<Sporter> verlatenrij = new List<Sporter>();
         public List<Sporter> GetAlleSporters()
         {
-            return sporterrij;
+            {
+                List<Sporter> sporterrij = new List<Sporter>();
+                foreach (Sporter sp in sporterrij)
+                {
+                    sporterrij.Add(sp);
+                }
+                return sporterrij;
+            }
         }
 
-        public void SporterNeemPlaatsInRIj(Sporter sp)
+        public void SporterNeemPlaatsInRIj(Sporter sporter)
         {
-            if (sporterrij.Count < MAX_LENGTE_RIJ)
-            {
-                sporterrij.Add(sp);
-            }
-            else
-            {
-                Console.WriteLine("WachtrijStarten is Vol!");
-            }
+            sporterrij.Enqueue(sporter);
         }
 
 
         public List<Sporter> SportersVerlatenRij(int aantal)
         {
-            verlatenrij.AddRange(sporterrij.GetRange(sporterrij.Count - aantal, sporterrij.Count));
-            sporterrij.RemoveRange(sporterrij.Count - aantal, sporterrij.Count);
-            return verlatenrij;
+            List<Sporter> sporterverlaat = new List<Sporter>();
+            for (int i = aantal; i > 0; i--)
+            {
+                sporterverlaat.Add(sporterrij.Dequeue());
+            }
+            return sporterverlaat;
         }
 
         public string tostring()
         {
-            return $"WachtrijStarten heeft {GetAlleSporters().Count()} sporters!";
+            String msg = $"Aantal sporters in wachtrij: {sporterrij.Count}";
+            return msg;
         }
     }
 }
