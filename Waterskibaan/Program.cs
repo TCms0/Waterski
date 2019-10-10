@@ -14,7 +14,7 @@ namespace Waterskibaan
             //TestOpdr3();
             // TestOpdr8();
             // TestOpdr10();
-            //TestOpdr11();
+            TestOpdr11();
         }
 
         private static void TestOpdr2()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 
@@ -12,28 +13,20 @@ namespace Waterskibaan
         private static System.Timers.Timer aTimer;
         public static Waterskibaan waterskibaan = new Waterskibaan();
 
+        Skies s = new Skies();
+        Zwemvest v = new Zwemvest();
         public void Initialize()
         {
-            SetTimer();
-
-            aTimer.Stop();
-        }
-
-        private static void SetTimer()
-        {
-            
-            aTimer = new System.Timers.Timer(1000);
-            
-            aTimer.Elapsed += OnTimedEvent;
-            aTimer.AutoReset = true;
-            aTimer.Enabled = true;
-        }
-        private static void OnTimedEvent(Object source, ElapsedEventArgs e)
-        {
-            Sporter sport = new Sporter(MoveCollection.GetWillekeurigeMoves());
-            waterskibaan.SporterStart(sport);
-            waterskibaan.VerplaatsKabel();
-            Console.WriteLine(waterskibaan.ToString());
+            for (int i = 0; i < 15; i++)
+            {
+                Sporter p = new Sporter(MoveCollection.GetWillekeurigeMoves());
+                p.Skies = s;
+                p.Zwemvest = v;
+                waterskibaan.SporterStart(p);
+                waterskibaan.VerplaatsKabel();
+                waterskibaan.ToString();
+                Thread.Sleep(300);
+            }
         }
     }
 }
