@@ -31,8 +31,9 @@ namespace Waterskibaan
             }
         }
 
-        public void NeemLijnInGebruik(Lijn lijn){
-           if (IsStartPositieLeeg())
+        public void NeemLijnInGebruik(Lijn lijn)
+        {
+            if (IsStartPositieLeeg())
             {
                 lijn.PositieOpDeKabel = 0;
                 _lijnen.AddFirst(lijn);
@@ -41,7 +42,7 @@ namespace Waterskibaan
             {
                 Console.WriteLine("Deze Positie is vol!");
             }
-         }
+        }
 
         public void VerschuifLijnen()
         {
@@ -50,17 +51,24 @@ namespace Waterskibaan
                 lijnverschuif.PositieOpDeKabel++;
             }
 
-            if (_lijnen.Last.Value.PositieOpDeKabel == 9){
+            if (_lijnen.Last.Value.PositieOpDeKabel == 9)
+            {
                 _lijnen.Last.Value.PositieOpDeKabel = 0;
+                _lijnen.AddFirst(_lijnen.Last.Value);
+                _lijnen.RemoveLast();
             }
+            Console.WriteLine(ToString());
         }
 
-                public Lijn VerwijderLijnVanKabel()
-            {
+        public Lijn VerwijderLijnVanKabel()
+        {
             if (_lijnen.Last.Value.PositieOpDeKabel == 9 && _lijnen.Last.Value.sp.AantalRondenNogTeGaan == 1)
-            { 
-               _lijnen.RemoveLast();
-                return _lijnen.Last();
+            {
+                Lijn lijntje = _lijnen.Last.Value;
+
+                _lijnen.RemoveLast();
+
+                return lijntje;
             }
             else
             {
@@ -70,12 +78,12 @@ namespace Waterskibaan
 
         public override string ToString()
         {
-           string Ouput = "";
+            string Ouput = "";
             foreach (Lijn lijn in _lijnen)
             {
                 Ouput += (lijn.PositieOpDeKabel + "|");
             }
-            return (Ouput.TrimEnd('|') );
+            return (Ouput.TrimEnd('|'));
         }
     }
 }

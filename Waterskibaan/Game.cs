@@ -10,21 +10,21 @@ namespace Waterskibaan
 {
     class Game
     {
-        private static System.Timers.Timer aTimer;
-        public static Waterskibaan waterskibaan = new Waterskibaan();
+        public static Kabel k = new Kabel();
+        public static Waterskibaan waterskibaan = new Waterskibaan(k);
 
         Skies s = new Skies();
         Zwemvest v = new Zwemvest();
         public void Initialize()
         {
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 9; i++)
             {
                 Sporter p = new Sporter(MoveCollection.GetWillekeurigeMoves());
                 p.Skies = s;
                 p.Zwemvest = v;
                 waterskibaan.SporterStart(p);
                 waterskibaan.VerplaatsKabel();
-                waterskibaan.ToString();
+                Console.WriteLine(waterskibaan.ToString());
                 Thread.Sleep(300);
             }
         }

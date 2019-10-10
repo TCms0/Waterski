@@ -59,9 +59,9 @@ namespace Waterskibaan
 
         private static void TestOpdr8()
         {
-
+            Kabel k = new Kabel();
             Sporter s1 = new Sporter(MoveCollection.GetWillekeurigeMoves());
-            Waterskibaan water = new Waterskibaan();
+            Waterskibaan water = new Waterskibaan(k);
             Skies skies = new Skies();
             Zwemvest zwemvest = new Zwemvest();
             s1.Zwemvest = zwemvest;

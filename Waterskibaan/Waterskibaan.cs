@@ -11,11 +11,13 @@ namespace Waterskibaan
         Kabel p = new Kabel();
         LijnenVoorraad voorraad = new LijnenVoorraad();
 
-        public Waterskibaan()
+        public Waterskibaan(Kabel k)
         {
-            for (int i = 0; i < 15; i++)
+            p = k;
+            for (int i = 0; i < 9; i++)
             {
                 voorraad.LijnToevoegenAanRij(new Lijn());
+
             }
         }
 
@@ -27,14 +29,19 @@ namespace Waterskibaan
 
             if (q != null)
             {
-                Console.WriteLine(q);
-                voorraad.LijnToevoegenAanRij(q);
+                for (int i = 0; i < 9; i++)
+                {
+
+
+                    Console.WriteLine(q);
+                    voorraad.LijnToevoegenAanRij(q);
+                }
             }
         }
 
         public override string ToString()
         {
-            return $"Er zijn {voorraad.ToString()} lijnen op voorraad en er zijn {p.ToString()} Lijnen aan de kabel: ";
+            return $"Er zijn {voorraad.ToString()} en er zijn {p.ToString()} Lijnen aan de kabel: ";
 
         }
 
@@ -44,11 +51,6 @@ namespace Waterskibaan
             {
                 if (p.IsStartPositieLeeg())
                 {
-
-                    Lijn l = new Lijn();
-                    p.NeemLijnInGebruik(l);
-                    l.Addsporter(sp);
-
                     Random r = new Random();
                     int rondjes = r.Next(2);
 
@@ -56,6 +58,11 @@ namespace Waterskibaan
                     { sp.AantalRondenNogTeGaan = 2; }
                     else
                     { sp.AantalRondenNogTeGaan = 1; }
+
+                    Lijn l = voorraad.VerwijderEersteLijn();
+                    l.sp = sp;
+                    p.NeemLijnInGebruik(l);
+                    l.Addsporter(sp);
                 }
             }
             else

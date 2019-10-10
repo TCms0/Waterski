@@ -17,14 +17,13 @@ namespace Waterskibaan
 
         public Lijn VerwijderEersteLijn()
         {
-            if(_lijnen.Count == 0)
+            if (_lijnen.Count == 0)
             {
                 return null;
             }
             else
             {
                 Lijn l = _lijnen.Dequeue();
-                Console.WriteLine($"De voorraad is {_lijnen.Count}");
                 return l;
             }
         }
