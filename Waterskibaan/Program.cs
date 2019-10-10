@@ -84,7 +84,7 @@ namespace Waterskibaan
             wachtins.SporterNeemPlaatsInRIj(s1);
             wachtins.SporterNeemPlaatsInRIj(s2);
 
-            Console.WriteLine(wachtins.tostring());
+            Console.WriteLine(wachtins.ToString());
 
         }
 

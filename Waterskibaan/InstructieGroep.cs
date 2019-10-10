@@ -35,7 +35,19 @@ namespace Waterskibaan
             sporterrij.RemoveRange(sporterrij.Count - aantal, sporterrij.Count);
             return verlatenrij; throw new NotImplementedException();
         }
-        public string tostring()
+
+        public void OnInstructieGroep(NieuweBezoekerArgs args)
+        {
+            if (sporterrij.Count == 5)
+            {
+                
+            }
+            
+
+        }
+
+
+        public override string ToString()
         {
             return $"De instructiegroep heeft {GetAlleSporters().Count()} sporters!";
         }
