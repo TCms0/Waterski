@@ -23,3 +23,8 @@ C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\obj\Debug\Waterskibaan.pdb
 C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\bin\Debug\Waterskibaan.exe.config
 C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\bin\Debug\Waterskibaan.exe
 C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\bin\Debug\Waterskibaan.pdb
+C:\Users\trist\Source\Repos\Waterski\Waterskibaan\obj\Debug\Visualisatie.g.cs
+C:\Users\trist\Source\Repos\Waterski\Waterskibaan\obj\Debug\Waterskibaan_MarkupCompile.cache
+C:\Users\trist\Source\Repos\Waterski\Waterskibaan\obj\Debug\Waterskibaan_MarkupCompile.lref
+C:\Users\trist\Source\Repos\Waterski\Waterskibaan\obj\Debug\Visualisatie.baml
+C:\Users\trist\Source\Repos\Waterski\Waterskibaan\obj\Debug\Waterskibaan.g.resources

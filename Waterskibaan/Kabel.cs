@@ -51,7 +51,7 @@ namespace Waterskibaan
                 lijnverschuif.PositieOpDeKabel++;
             }
 
-            if (_lijnen.Last.Value.PositieOpDeKabel == 9)
+            if (_lijnen.Last.Value.PositieOpDeKabel == 15)
             {
                 _lijnen.Last.Value.PositieOpDeKabel = 0;
                 _lijnen.AddFirst(_lijnen.Last.Value);

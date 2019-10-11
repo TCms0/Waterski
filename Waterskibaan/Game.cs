@@ -30,7 +30,7 @@ namespace Waterskibaan
         {
             NieuweBezoeker += OnNieuweBezoeker;
             InstructieAfgelopen += OnInstructieGroep;
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i <15; i++)
             {
                 Sporter p = new Sporter(MoveCollection.GetWillekeurigeMoves());
                 p.Skies = s;

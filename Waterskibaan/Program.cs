@@ -8,7 +8,7 @@ namespace Waterskibaan
 {
     class Program
     {
-        static void Main(string[] args)
+       /* static void Main(string[] args)
         {
             //  TestOpdr2();
             //TestOpdr3();
@@ -16,7 +16,7 @@ namespace Waterskibaan
             // TestOpdr10();
             TestOpdr11();
         }
-
+        */
         private static void TestOpdr2()
         {
             Kabel k = new Kabel();

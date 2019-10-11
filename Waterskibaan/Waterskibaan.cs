@@ -14,7 +14,7 @@ namespace Waterskibaan
         public Waterskibaan(Kabel k)
         {
             p = k;
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 15; i++)
             {
                 voorraad.LijnToevoegenAanRij(new Lijn());
 
@@ -29,7 +29,7 @@ namespace Waterskibaan
 
             if (q != null)
             {
-                for (int i = 0; i < 9; i++)
+                for (int i = 0; i < 15; i++)
                 {
 
 
