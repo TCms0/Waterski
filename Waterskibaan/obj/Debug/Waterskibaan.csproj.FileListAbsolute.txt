@@ -28,3 +28,8 @@ C:\Users\trist\Source\Repos\Waterski\Waterskibaan\obj\Debug\Waterskibaan_MarkupC
 C:\Users\trist\Source\Repos\Waterski\Waterskibaan\obj\Debug\Waterskibaan_MarkupCompile.lref
 C:\Users\trist\Source\Repos\Waterski\Waterskibaan\obj\Debug\Visualisatie.baml
 C:\Users\trist\Source\Repos\Waterski\Waterskibaan\obj\Debug\Waterskibaan.g.resources
+C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\obj\Debug\Visualisatie.g.cs
+C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\obj\Debug\Waterskibaan_MarkupCompile.cache
+C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\obj\Debug\Waterskibaan_MarkupCompile.lref
+C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\obj\Debug\Visualisatie.baml
+C:\Users\Tristan\source\repos\Waterski3\Waterskibaan\obj\Debug\Waterskibaan.g.resources

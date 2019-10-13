@@ -14,6 +14,7 @@ namespace Waterskibaan
         public int AantalRondenNogTeGaan { get;set;}
         public Zwemvest Zwemvest{ get; set;}
         public Skies Skies { get; set; }
+        public IMoves HuidigeMove { get; set; }
         public Color KledingKleur { get; set; }
         public List<IMoves> Moves { get; set; }
 
@@ -26,6 +27,14 @@ namespace Waterskibaan
             Color randomkleur = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
             KledingKleur = randomkleur;
             Moves = moves;
+        }
+        public void DoeMove()
+        {
+            if (random.Next(4) == 1 && Moves.Count > 0)
+            {
+                int index = random.Next(Moves.Count);
+                HuidigeMove = Moves[index];
+            }
         }
 
 

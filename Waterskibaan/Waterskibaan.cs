@@ -8,12 +8,12 @@ namespace Waterskibaan
 {
     class Waterskibaan
     {
-        Kabel p = new Kabel();
-        LijnenVoorraad voorraad = new LijnenVoorraad();
+        public Kabel p = new Kabel();
+        public LijnenVoorraad voorraad = new LijnenVoorraad();
 
-        public Waterskibaan(Kabel k)
+        public Waterskibaan()
         {
-            p = k;
+          
             for (int i = 0; i < 15; i++)
             {
                 voorraad.LijnToevoegenAanRij(new Lijn());

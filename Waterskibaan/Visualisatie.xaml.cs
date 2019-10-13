@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,23 +11,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Waterskibaan;
 
 namespace Waterskibaan
 {
-    /// <summary>
-    /// Interaction logic for Visualisatie.xaml
-    /// </summary>
+
     public partial class Visualisatie : Window
     {
         public Visualisatie()
         {
             InitializeComponent();
         }
+
+
         [STAThread]
         static void Main(string[] args)
         {
             RunApplication();
-            TestOpdr11();
+            TestOpdr12();
         }
 
         private static void RunApplication()
@@ -37,11 +37,21 @@ namespace Waterskibaan
             application.Run(new Visualisatie());
         }
 
+        private static void TestOpdr12()
+        {
+
+            Game game = new Game();
+            game._PrintStatus = true;
+            game.Initialize();
+        }
 
         private static void TestOpdr11()
         {
-            Game g = new Game();
-            g.Initialize();
+            Game game = new Game();
+            game.Initialize();
         }
+
     }
 }
+
+

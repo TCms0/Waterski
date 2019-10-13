@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
 namespace Waterskibaan
 {
     class Program
     {
-       /* static void Main(string[] args)
+        static void Main(string[] args)
         {
             //  TestOpdr2();
             //TestOpdr3();
             // TestOpdr8();
             // TestOpdr10();
-            TestOpdr11();
+          //  TestOpdr11();
+           // TestOpdr12();
         }
-        */
+
         private static void TestOpdr2()
         {
             Kabel k = new Kabel();
@@ -61,7 +62,7 @@ namespace Waterskibaan
         {
             Kabel k = new Kabel();
             Sporter s1 = new Sporter(MoveCollection.GetWillekeurigeMoves());
-            Waterskibaan water = new Waterskibaan(k);
+            Waterskibaan water = new Waterskibaan();
             Skies skies = new Skies();
             Zwemvest zwemvest = new Zwemvest();
             s1.Zwemvest = zwemvest;
@@ -81,8 +82,8 @@ namespace Waterskibaan
 
             wachtins.MAX_LENGTE_RIJ = 1;
 
-            wachtins.SporterNeemPlaatsInRIj(s1);
-            wachtins.SporterNeemPlaatsInRIj(s2);
+            wachtins.SporterNeemPlaatsInRij(s1);
+            wachtins.SporterNeemPlaatsInRij(s2);
 
             Console.WriteLine(wachtins.ToString());
 
@@ -90,8 +91,18 @@ namespace Waterskibaan
 
         private static void TestOpdr11()
         {
-            Game g = new Game();
-            g.Initialize();
+            Game game = new Game();
+            game.Initialize();
+        }
+
+        private static void TestOpdr12()
+        {
+
+            Game game = new Game();
+            game._PrintStatus = true;
+            game.Initialize();
         }
     }
 }
+
+    */
