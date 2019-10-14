@@ -11,6 +11,7 @@ namespace Waterskibaan
     class Game : Logger
 
     {
+        
         public bool _PrintStatus = false;
         public delegate void InstructieAfgelopenHandler(InstructieAfgelopenArgs args);
         public delegate void NieuweBezoekerHandler(NieuweBezoekerArgs args);
@@ -36,6 +37,8 @@ namespace Waterskibaan
             NieuweBezoeker += OnNieuweBezoeker;
             InstructieAfgelopen += OnInstructieGroep;
             _LijnenVerplaatst += LijnenVerplaatsen;
+
+
             Console.ReadLine();
             aTimer.Stop();
             aTimer.Dispose();
@@ -79,21 +82,21 @@ namespace Waterskibaan
 
         private void OnInstructieGroep(InstructieAfgelopenArgs e)
         {
+           foreach (Sporter sp in e.SporternrInstructie)
+            {
+                InstrG.SporterNeemPlaatsInRij(sp);
+            }
+
             if (InstrG.GetAlleSporters().Count > 0)
             {
                 List<Sporter> Instructie = InstrG.SportersVerlatenRij(InstrG.GetAlleSporters().Count);
                 foreach (Sporter sp in Instructie)
                 {
-                    WachtI.SporterNeemPlaatsInRij(sp);
+                    Wachtst.SporterNeemPlaatsInRij(sp);
                 }
             }
 
-            foreach (Sporter sp in e.SporternrInstructie)
-            {
-                InstrG.SporterNeemPlaatsInRij(sp);
-            }
         }
-
         public void LijnenVerplaatsen()
         {
 
@@ -114,9 +117,10 @@ namespace Waterskibaan
         {
             if (_PrintStatus)
             {
+                Console.WriteLine("---------------------------------");
                 Console.WriteLine(WachtI);
-                Console.WriteLine(Wachtst);
-                Console.WriteLine($"{InstrG}\n");
+                Console.WriteLine(InstrG);
+                Console.WriteLine($"{Wachtst}\n");
             }
         }
     }

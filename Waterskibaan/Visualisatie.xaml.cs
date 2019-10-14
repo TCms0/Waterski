@@ -35,7 +35,16 @@ namespace Waterskibaan
         {
             var application = new Application();
             application.Run(new Visualisatie());
+
         }
+
+        public void lijnvoorraad()
+        {
+            lijnenvoorraad_4.Content = "aantal :" + Game.waterb.voorraad.GetAantalLijnen();
+
+        }
+
+
 
         private static void TestOpdr12()
         {

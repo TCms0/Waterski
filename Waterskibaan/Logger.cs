@@ -8,15 +8,14 @@ namespace Waterskibaan
 {
     class Logger
     {
-        public List<string> BezoekLijst = new List<string>();
+        public List<Sporter> BezoekLijst = new List<Sporter>();
 
-        public Kabel kabel;
 
-      /*  public void AddToLijst()
+   /*     public void AddToLijst()
         {
-            BezoekLijst.Add();
+            BezoekLijst.Add(NieuweBezoekerArgs);
         }
-    */
+        */
     }
 }
 

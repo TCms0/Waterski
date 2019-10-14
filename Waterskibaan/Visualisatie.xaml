@@ -14,13 +14,13 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="125" Margin="744,283,0,0" Stroke="Black" VerticalAlignment="Top" Width="40"/>
         <Label Content="Wachrij 1" HorizontalAlignment="Left" Margin="27,257,0,0" VerticalAlignment="Top" Width="50" FontSize="9"/>
         <Label Content="Wachrij 2" HorizontalAlignment="Left" Margin="93,256,0,0" VerticalAlignment="Top" Width="50" FontSize="9"/>
-        <Label Content="Aantal1" HorizontalAlignment="Left" Height="21" Margin="33,290,0,0" VerticalAlignment="Top" Width="40" FontSize="9"/>
-        <Label Content="Aantal2" HorizontalAlignment="Left" Height="21" Margin="97,290,0,0" VerticalAlignment="Top" Width="40" FontSize="9"/>
+        <Label x:Name="wachtrij_aantal_1" Content="Aantal1" HorizontalAlignment="Left" Height="21" Margin="33,290,0,0" VerticalAlignment="Top" Width="40" FontSize="9"/>
+        <Label x:Name="wachtrij_aantal_2" Content="Aantal2" HorizontalAlignment="Left" Height="21" Margin="97,290,0,0" VerticalAlignment="Top" Width="40" FontSize="9"/>
         <Label Content="Instructiegroep" HorizontalAlignment="Left" Margin="724,256,-0.4,0" VerticalAlignment="Top" Width="70" FontSize="9"/>
-        <Label Content="Aantal3" HorizontalAlignment="Left" Height="21" Margin="744,290,0,0" VerticalAlignment="Top" Width="40" FontSize="9"/>
+        <Label x:Name="lijnen_3" Content="Aantal3" HorizontalAlignment="Left" Height="21" Margin="744,290,0,0" VerticalAlignment="Top" Width="40" FontSize="9"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="80" Margin="196,328,0,0" Stroke="Black" VerticalAlignment="Top" Width="72"/>
         <Label Content="Lijnen Voorraad" HorizontalAlignment="Left" Margin="196,296,0,0" VerticalAlignment="Top" Width="72" FontSize="9" RenderTransformOrigin="0.509,1.089"/>
-        <Label Content="Aantal4" HorizontalAlignment="Left" Height="21" Margin="196,328,0,0" VerticalAlignment="Top" Width="72" FontSize="9"/>
+        <Label x:Name="lijnenvoorraad_4" Content="" HorizontalAlignment="Left" Height="21" Margin="196,328,0,0" VerticalAlignment="Top" Width="72" FontSize="9"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="178" Margin="172,100,0,0" VerticalAlignment="Top" Width="540"/>
         <TextBlock x:Name="Lijn1" HorizontalAlignment="Left" Height="65" Margin="305,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="2 " Background="Black" RenderTransformOrigin="0.5,0.5"></TextBlock>
         <TextBlock x:Name="Lijn2" HorizontalAlignment="Left" Height="65" Margin="312,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="2                    " Background="Black" RenderTransformOrigin="0.5,0.5"/>
