@@ -33,6 +33,7 @@ namespace Waterskibaan
         public void Initialize()
         {
             SetTimer();
+            
             Console.WriteLine("Start spel");
             NieuweBezoeker += OnNieuweBezoeker;
             InstructieAfgelopen += OnInstructieGroep;
@@ -82,11 +83,6 @@ namespace Waterskibaan
 
         private void OnInstructieGroep(InstructieAfgelopenArgs e)
         {
-           foreach (Sporter sp in e.SporternrInstructie)
-            {
-                InstrG.SporterNeemPlaatsInRij(sp);
-            }
-
             if (InstrG.GetAlleSporters().Count > 0)
             {
                 List<Sporter> Instructie = InstrG.SportersVerlatenRij(InstrG.GetAlleSporters().Count);
@@ -95,6 +91,12 @@ namespace Waterskibaan
                     Wachtst.SporterNeemPlaatsInRij(sp);
                 }
             }
+            foreach (Sporter sp in e.SporternrInstructie)
+            {
+                InstrG.SporterNeemPlaatsInRij(sp);
+            }
+
+            
 
         }
         public void LijnenVerplaatsen()
