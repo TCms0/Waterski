@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Waterskibaan
 {
-    abstract class Wachtrij
+    public abstract class Wachtrij
     {
-        private Queue<Sporter> queue = new Queue<Sporter>();
+        private Queue<Sporter> lijst = new Queue<Sporter>();
         public List<Sporter> GetAlleSporters()
         {
             List<Sporter> spList = new List<Sporter>();
-            foreach (Sporter sp in queue)
+            foreach (Sporter sp in lijst)
             {
                 spList.Add(sp);
             }
@@ -21,21 +21,21 @@ namespace Waterskibaan
 
         public void SporterNeemPlaatsInRij(Sporter sporter)
         {
-            queue.Enqueue(sporter);
+            lijst.Enqueue(sporter);
         }
 
         public List<Sporter> SportersVerlatenRij(int aantal)
         {
             List<Sporter> spList = new List<Sporter>();
-            for (int i = aantal; i > 0; i--)
+            for (int i = 0; i < aantal; i++)
             {
-                spList.Add(queue.Dequeue());
+                spList.Add(lijst.Dequeue());
             }
             return spList;
         }
         public String toString()
         {
-            String text = $"Aantal sporters in wachtrij: {queue.Count}";
+            String text = $"Aantal sporters in wachtrij: {lijst.Count}";
             return text;
         }
     }

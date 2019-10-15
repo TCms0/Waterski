@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Waterskibaan
 {
-    class Waterskibaan
+    public class Waterskibaan
     {
         public Kabel p = new Kabel();
         public LijnenVoorraad voorraad = new LijnenVoorraad();
 
         public Waterskibaan()
         {
-          
+
             for (int i = 0; i < 15; i++)
             {
                 voorraad.LijnToevoegenAanRij(new Lijn());
@@ -47,24 +47,23 @@ namespace Waterskibaan
 
         public void SporterStart(Sporter sp)
         {
-            if (sp.Skies != null && sp.Zwemvest != null)
+            if (sp.Skies != null && sp.Zwemvest != null && p.IsStartPositieLeeg())
             {
-                if (p.IsStartPositieLeeg())
-                {
-                    Random r = new Random();
-                    int rondjes = r.Next(2);
+                Random r = new Random();
+                int rondjes = r.Next(2);
 
-                    if (rondjes == 1)
-                    { sp.AantalRondenNogTeGaan = 2; }
-                    else
-                    { sp.AantalRondenNogTeGaan = 1; }
+                if (rondjes == 1)
+                { sp.AantalRondenNogTeGaan = 2; }
+                else
+                { sp.AantalRondenNogTeGaan = 1; }
 
-                    Lijn l = voorraad.VerwijderEersteLijn();
-                    l.sp = sp;
-                    p.NeemLijnInGebruik(l);
-                    l.Addsporter(sp);
-                }
+                Lijn l = voorraad.VerwijderEersteLijn();
+                p.NeemLijnInGebruik(l);
+
+                l.Sp = sp;
+                l.Addsporter(sp);
             }
+
             else
             {
                 throw new System.Exception("Sporter heeft geen skies of zwemvest aan");

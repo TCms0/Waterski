@@ -60,9 +60,6 @@
     <Compile Include="MoveCollection.cs" />
     <Compile Include="NieuweBezoekerArgs.cs" />
     <Compile Include="Skies.cs" />
-    <Compile Include="Visualisatie.xaml.cs">
-      <DependentUpon>Visualisatie.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Wachtrij.cs" />
     <Compile Include="WachtrijInstructie.cs" />
     <Compile Include="WachtrijStarten.cs" />
@@ -75,12 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Visualisatie.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,25 +6,28 @@ using System.Threading.Tasks;
 
 namespace Waterskibaan
 {
-    class LijnenVoorraad
+    public class LijnenVoorraad
     {
         Queue<Lijn> _lijnen = new Queue<Lijn>();
 
         public void LijnToevoegenAanRij(Lijn lijn)
         {
-            _lijnen.Enqueue(lijn);
+            if (lijn != null)
+            {
+                _lijnen.Enqueue(lijn);
+            }
         }
 
         public Lijn VerwijderEersteLijn()
         {
-            if (_lijnen.Count == 0)
-            {
-                return null;
-            }
-            else
+            if (GetAantalLijnen() != 0)
             {
                 Lijn l = _lijnen.Dequeue();
                 return l;
+            }
+            else
+            {
+                return null;
             }
         }
 
@@ -35,7 +38,7 @@ namespace Waterskibaan
 
         public override string ToString()
         {
-            return $"{_lijnen.Count()} Lijnen op Voorraad";
+            return $"{GetAantalLijnen()} Lijnen op Voorraad";
         }
     }
 }

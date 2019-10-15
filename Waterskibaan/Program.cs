@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-/*
+using System.Windows.Threading;
+
 namespace Waterskibaan
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            //  TestOpdr2();
-            //TestOpdr3();
-            // TestOpdr8();
-            // TestOpdr10();
-          //  TestOpdr11();
+             TestOpdr2();
+            TestOpdr3();
+             TestOpdr8();
+             TestOpdr10();
+              TestOpdr11();
            // TestOpdr12();
         }
 
@@ -60,14 +61,21 @@ namespace Waterskibaan
 
         private static void TestOpdr8()
         {
-            Kabel k = new Kabel();
-            Sporter s1 = new Sporter(MoveCollection.GetWillekeurigeMoves());
-            Waterskibaan water = new Waterskibaan();
-            Skies skies = new Skies();
-            Zwemvest zwemvest = new Zwemvest();
-            s1.Zwemvest = zwemvest;
-            s1.Skies = skies;
-            water.SporterStart(s1);
+            Sporter s = new Sporter(MoveCollection.GetWillekeurigeMoves());
+            Waterskibaan waterskibaan = new Waterskibaan();
+
+            s.Zwemvest = new Zwemvest();
+            s.Skies = new Skies();
+
+            waterskibaan.SporterStart(s);
+         /*   foreach (var punt in s.Moves)
+            {
+                Console.WriteLine(punt);
+            }
+    */       
+    Console.WriteLine(s.KledingKleur);
+            Console.WriteLine("--------------------------------------------- \n");
+
         }
 
         private static void TestOpdr10()
@@ -92,17 +100,24 @@ namespace Waterskibaan
         private static void TestOpdr11()
         {
             Game game = new Game();
-            game.Initialize();
+         //   game.Initialize;
         }
 
         private static void TestOpdr12()
         {
 
-            Game game = new Game();
-            game._PrintStatus = true;
-            game.Initialize();
-        }
-    }
-}
+                 DispatcherTimer timer = new DispatcherTimer();
+                Game game = new Game();
+                game.Initialize(timer);
+                timer.Interval = TimeSpan.FromSeconds(1);
+                timer.Tick += timer_Tick;
+                timer.Start();
+                Console.ReadLine();
+            }
 
-    */
+            public static void timer_Tick(object sender, EventArgs e)
+            {
+                Console.WriteLine("ttt");
+            }
+        }
+}

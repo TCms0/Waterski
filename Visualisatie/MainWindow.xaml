@@ -1,0 +1,22 @@
+﻿<Window x:Class="Visualisatie.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Visualisatie"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Canvas x:Name="Hoofdscherm" HorizontalAlignment="Left" Height="461" Margin="-6,0,-0.4,-41" VerticalAlignment="Top" Width="800" Background="White">
+            <Label Content="Wachtrij" Height="28" Canvas.Left="10" Canvas.Top="322" Width="91"/>
+            <Label Content="Wachtrij instructie" Height="28" Canvas.Left="695" Canvas.Top="313" Width="106"/>
+            <Label Content="Instructiegroep" Height="27" Canvas.Left="122" Canvas.Top="323" Width="92"/>
+            <ListBox Name="wachtlist" Height="105" Canvas.Left="10" Canvas.Top="351" Width="91"/>
+            <ListBox Name="Instrlist" Height="105" Canvas.Left="122" Canvas.Top="351" Width="92"/>
+            <ListBox Name="wachtstartlist" Height="109" Canvas.Left="695" Canvas.Top="342" Width="95"/>
+            <Label Content="Lijnen Beschikbaar" Canvas.Left="267" Canvas.Top="330"/>
+            <Canvas Name="Spelscherm" Height="313" Width="780" Canvas.Left="10"/>
+            <ListBox x:Name="Lijnenbeschikbaar" Height="91" Canvas.Left="267" Canvas.Top="360" Width="107"/>
+        </Canvas>
+    </Grid>
+</Window>

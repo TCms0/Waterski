@@ -5,56 +5,42 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Windows.Threading;
 
 namespace Waterskibaan
 {
-    class Game : Logger
+    public class Game
 
     {
-        
+
         public bool _PrintStatus = false;
         public delegate void InstructieAfgelopenHandler(InstructieAfgelopenArgs args);
         public delegate void NieuweBezoekerHandler(NieuweBezoekerArgs args);
         public delegate void LijnenVerplaatst();
 
-        private static System.Timers.Timer aTimer;
+        public static System.Timers.Timer aTimer;
         private int teller = 0;
 
-        InstructieGroep InstrG = new InstructieGroep();
-        WachtrijInstructie WachtI = new WachtrijInstructie();
-        WachtrijStarten Wachtst = new WachtrijStarten();
+        public InstructieGroep InstrG = new InstructieGroep();
+        public WachtrijInstructie WachtI = new WachtrijInstructie();
+        public WachtrijStarten Wachtst = new WachtrijStarten();
 
- 
+
         public event NieuweBezoekerHandler NieuweBezoeker;
         public event InstructieAfgelopenHandler InstructieAfgelopen;
-        public event LijnenVerplaatst _LijnenVerplaatst;
+        public event LijnenVerplaatst LijnenVerplaatss;
         public static Waterskibaan waterb = new Waterskibaan();
- 
-        public void Initialize()
+
+        public void Initialize(DispatcherTimer timer)
         {
-            SetTimer();
-            
-            Console.WriteLine("Start spel");
             NieuweBezoeker += OnNieuweBezoeker;
             InstructieAfgelopen += OnInstructieGroep;
-            _LijnenVerplaatst += LijnenVerplaatsen;
-
-
-            Console.ReadLine();
-            aTimer.Stop();
-            aTimer.Dispose();
-            Console.WriteLine(teller);
+            LijnenVerplaatss += LijnenVerplaatsen;
+            timer.Tick += OnTimedEvent;
         }
 
-        private void SetTimer()
-        {
-            aTimer = new System.Timers.Timer(1000);
-            aTimer.Elapsed += OnTimedEvent;
-            aTimer.AutoReset = true;
-            aTimer.Enabled = true;
-        }
 
-        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        public void OnTimedEvent(Object source, EventArgs e)
         {
             teller++;
             if (teller % 3 == 0)
@@ -70,15 +56,14 @@ namespace Waterskibaan
             }
             if (teller % 4 == 0)
             {
-                _LijnenVerplaatst.Invoke();
+                LijnenVerplaatss.Invoke();
             }
-
         }
 
         private void OnNieuweBezoeker(NieuweBezoekerArgs e)
         {
             WachtI.SporterNeemPlaatsInRij(e.sp);
-            
+
         }
 
         private void OnInstructieGroep(InstructieAfgelopenArgs e)
@@ -95,35 +80,34 @@ namespace Waterskibaan
             {
                 InstrG.SporterNeemPlaatsInRij(sp);
             }
-
-            
-
         }
         public void LijnenVerplaatsen()
         {
+            waterb.VerplaatsKabel();
 
+            if (Wachtst.GetAlleSporters().Count == 0)
+            {
+                return;
+            }
             if (waterb.p.IsStartPositieLeeg())
             {
-                List<Sporter> Sporterstart = Wachtst.SportersVerlatenRij(1);
-                foreach (Sporter sp in Sporterstart)
-                {
-                    sp.Skies = new Skies();
-                    sp.Zwemvest = new Zwemvest();
-                    waterb.SporterStart(sp);
-                }
-            }
-            waterb.VerplaatsKabel();
-        }
+                Sporter Sporterstart = Wachtst.SportersVerlatenRij(1)[0];
 
-        public void PrintStatus()
-        {
-            if (_PrintStatus)
-            {
-                Console.WriteLine("---------------------------------");
-                Console.WriteLine(WachtI);
-                Console.WriteLine(InstrG);
-                Console.WriteLine($"{Wachtst}\n");
-            }
+                Sporterstart.Skies = new Skies();
+                Sporterstart.Zwemvest = new Zwemvest();
+
+                waterb.SporterStart(Sporterstart);
         }
     }
+    public void PrintStatus()
+    {
+        if (_PrintStatus)
+        {
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine(WachtI);
+            Console.WriteLine(InstrG);
+            Console.WriteLine($"{Wachtst}\n");
+        }
+    }
+}
 }

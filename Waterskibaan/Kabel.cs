@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Waterskibaan
 {
-    class Kabel
+    public class Kabel
     {
 
-        LinkedList<Lijn> _lijnen = new LinkedList<Lijn>();
+        public LinkedList<Lijn> _lijnen = new LinkedList<Lijn>();
 
 
         public Boolean IsStartPositieLeeg()
@@ -46,35 +46,44 @@ namespace Waterskibaan
 
         public void VerschuifLijnen()
         {
-            foreach (Lijn lijnverschuif in _lijnen)
+            Lijn lijnswitch = null;
+            foreach (Lijn lijn in _lijnen)
             {
-                lijnverschuif.PositieOpDeKabel++;
+                if (lijn.PositieOpDeKabel == 9)
+                {
+                    lijnswitch = lijn;
+                }
+                else
+                {
+                    lijn.PositieOpDeKabel++;
+                    lijn.Sp.DoeMove();
+                }
             }
-
-            if (_lijnen.Last.Value.PositieOpDeKabel == 9)
+            if (lijnswitch != null)
             {
-                _lijnen.Last.Value.PositieOpDeKabel = 0;
-                _lijnen.AddFirst(_lijnen.Last.Value);
-                _lijnen.RemoveLast();
+                lijnswitch.PositieOpDeKabel = 0;
+                _lijnen.Remove(lijnswitch);
+                _lijnen.AddFirst(lijnswitch);
+                if (lijnswitch.Sp.AantalRondenNogTeGaan == 1)
+                {
+                    return;
+                }
+                lijnswitch.Sp.AantalRondenNogTeGaan--;
             }
-            Console.WriteLine(ToString());
         }
 
-        public Lijn VerwijderLijnVanKabel()
-        {
-            if (_lijnen.Last.Value.PositieOpDeKabel == 9 && _lijnen.Last.Value.sp.AantalRondenNogTeGaan == 1)
+            public Lijn VerwijderLijnVanKabel()
             {
-                Lijn lijntje = _lijnen.Last.Value;
-
-                _lijnen.RemoveLast();
-
-                return lijntje;
-            }
-            else
-            {
+                foreach (Lijn lijn in _lijnen)
+                {
+                    if (lijn.PositieOpDeKabel == 9 && lijn.Sp.AantalRondenNogTeGaan <= 1)
+                    {
+                        _lijnen.RemoveLast();
+                        return _lijnen.Last.Value;
+                    }
+                }
                 return null;
             }
-        }
 
         public override string ToString()
         {
