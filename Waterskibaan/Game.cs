@@ -13,7 +13,7 @@ namespace Waterskibaan
 
     {
 
-        public bool _PrintStatus = false;
+        public bool _OutputStatus = false;
         public delegate void InstructieAfgelopenHandler(InstructieAfgelopenArgs args);
         public delegate void NieuweBezoekerHandler(NieuweBezoekerArgs args);
         public delegate void LijnenVerplaatst();
@@ -46,7 +46,7 @@ namespace Waterskibaan
             if (teller % 3 == 0)
             {
                 NieuweBezoeker.Invoke(new NieuweBezoekerArgs(new Sporter(MoveCollection.GetWillekeurigeMoves())));
-                PrintStatus();
+                OutputStatus();
             }
             if (teller % 20 == 0)
             {
@@ -60,13 +60,13 @@ namespace Waterskibaan
             }
         }
 
-        private void OnNieuweBezoeker(NieuweBezoekerArgs e)
+        public void OnNieuweBezoeker(NieuweBezoekerArgs e)
         {
             WachtI.SporterNeemPlaatsInRij(e.sp);
 
         }
 
-        private void OnInstructieGroep(InstructieAfgelopenArgs e)
+        public void OnInstructieGroep(InstructieAfgelopenArgs e)
         {
             if (InstrG.GetAlleSporters().Count > 0)
             {
@@ -97,17 +97,17 @@ namespace Waterskibaan
                 Sporterstart.Zwemvest = new Zwemvest();
 
                 waterb.SporterStart(Sporterstart);
+            }
         }
-    }
-    public void PrintStatus()
-    {
-        if (_PrintStatus)
+        public void OutputStatus()
         {
-            Console.WriteLine("---------------------------------");
-            Console.WriteLine(WachtI);
-            Console.WriteLine(InstrG);
-            Console.WriteLine($"{Wachtst}\n");
+            if (_OutputStatus)
+            {
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine(WachtI);
+                Console.WriteLine(InstrG);
+                Console.WriteLine($"{Wachtst}\n");
+            }
         }
     }
-}
 }

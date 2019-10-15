@@ -33,10 +33,10 @@ namespace Visualisatie
         public MainWindow()
         {
             this.game = new Game();
-            game._PrintStatus = true;
+            game._OutputStatus = true;
             DispatcherTimer timer = new DispatcherTimer();
             game.Initialize(timer);
-            timer.Interval = TimeSpan.FromSeconds(0.1);
+            timer.Interval = TimeSpan.FromSeconds(0.01);
             timer.Tick += Timer_Tick;
             timer.Start();
             InitializeComponent();
@@ -76,13 +76,13 @@ namespace Visualisatie
             foreach (Sporter sp in game.Wachtst.GetAlleSporters())
             {
                 wachtstartlist.Items.Add("Sporter" + sp.Sporternummer);
-
             }
         }
         public void lijnenwachtrij()
         {
             Lijnenbeschikbaar.Items.Clear();
             Lijnenbeschikbaar.Items.Add("Beschikbaar : " + Waterskibaan.Game.waterb.voorraad.GetAantalLijnen());
+            
         }
 
         public void tekenopdr()
@@ -90,8 +90,8 @@ namespace Visualisatie
             Spelscherm.Children.Clear();
 
             int scherm_x = 20;
-            int scherm_y = 10;
-            int scherm_x2 = 320;
+            int scherm_y = 300; //Print rechtelijntjes
+            int scherm_x2 = 20;
             int scherm_y2 = 10;
             if (Waterskibaan.Game.waterb.p._lijnen.Count > 0)
             {
@@ -107,8 +107,14 @@ namespace Visualisatie
                     teken.StrokeThickness = 2;
                     Spelscherm.Children.Add(teken);
 
-                    scherm_y += 20;
-                    scherm_y2 += 20;
+                    Label l = new Label();
+                    Canvas.SetLeft(l, scherm_x2);
+                    Canvas.SetTop(l, scherm_x2 - 13);
+                    l.Content = lijn.Sp.Sporternummer;
+                    Spelscherm.Children.Add(l);
+
+                    scherm_x += 20;
+                    scherm_x2 += 20;
 
                 }
             }

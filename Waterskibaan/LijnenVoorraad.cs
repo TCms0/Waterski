@@ -20,7 +20,7 @@ namespace Waterskibaan
 
         public Lijn VerwijderEersteLijn()
         {
-            if (GetAantalLijnen() != 0)
+            if (_lijnen.Count > 0)
             {
                 Lijn l = _lijnen.Dequeue();
                 return l;

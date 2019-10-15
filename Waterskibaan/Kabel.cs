@@ -14,29 +14,16 @@ namespace Waterskibaan
 
         public Boolean IsStartPositieLeeg()
         {
-            if (_lijnen.Count != 0)
-            {
-                if (_lijnen.First.Value.PositieOpDeKabel == 0)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            else
-            {
-                return true;
-            }
+            return _lijnen.First == null || _lijnen.First.Value.PositieOpDeKabel != 0;
         }
 
         public void NeemLijnInGebruik(Lijn lijn)
         {
             if (IsStartPositieLeeg())
             {
-                lijn.PositieOpDeKabel = 0;
                 _lijnen.AddFirst(lijn);
+                lijn.PositieOpDeKabel = 0;
+
             }
             else
             {
@@ -46,44 +33,44 @@ namespace Waterskibaan
 
         public void VerschuifLijnen()
         {
-            Lijn lijnswitch = null;
-            foreach (Lijn lijn in _lijnen)
+            for (int i = 0; i < _lijnen.Count; i++)
             {
-                if (lijn.PositieOpDeKabel == 9)
+                Lijn l = _lijnen.Last.Value;
+                try
                 {
-                    lijnswitch = lijn;
+                    if (_lijnen.Last != null && _lijnen.Last.Value.PositieOpDeKabel == 9)
+                    {
+                        l.Sp.AantalRondenNogTeGaan--;
+                        l.PositieOpDeKabel = 0;
+                        _lijnen.RemoveLast();
+                        _lijnen.AddFirst(l);
+                    }
+                    else
+                    {
+                        _lijnen.ElementAt(i).PositieOpDeKabel++;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    lijn.PositieOpDeKabel++;
-                    lijn.Sp.DoeMove();
+                    Console.WriteLine(e.Message);
                 }
-            }
-            if (lijnswitch != null)
-            {
-                lijnswitch.PositieOpDeKabel = 0;
-                _lijnen.Remove(lijnswitch);
-                _lijnen.AddFirst(lijnswitch);
-                if (lijnswitch.Sp.AantalRondenNogTeGaan == 1)
-                {
-                    return;
-                }
-                lijnswitch.Sp.AantalRondenNogTeGaan--;
             }
         }
 
-            public Lijn VerwijderLijnVanKabel()
+        public Lijn VerwijderLijnVanKabel()
+        {
+            foreach (Lijn lijn in _lijnen)
             {
-                foreach (Lijn lijn in _lijnen)
+                if (lijn.Sp.AantalRondenNogTeGaan <= 1 && lijn.PositieOpDeKabel == 9)
                 {
-                    if (lijn.PositieOpDeKabel == 9 && lijn.Sp.AantalRondenNogTeGaan <= 1)
-                    {
-                        _lijnen.RemoveLast();
-                        return _lijnen.Last.Value;
-                    }
+                    Lijn l = _lijnen.Last.Value;
+                    l.PositieOpDeKabel = 0;
+                    _lijnen.RemoveLast();
+                    return l;
                 }
-                return null;
             }
+            return null;
+        }
 
         public override string ToString()
         {
