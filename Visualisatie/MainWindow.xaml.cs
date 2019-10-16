@@ -36,7 +36,7 @@ namespace Visualisatie
             game._OutputStatus = true;
             DispatcherTimer timer = new DispatcherTimer();
             game.Initialize(timer);
-            timer.Interval = TimeSpan.FromSeconds(0.01);
+            timer.Interval = TimeSpan.FromSeconds(0.1);
             timer.Tick += Timer_Tick;
             timer.Start();
             InitializeComponent();
@@ -89,9 +89,9 @@ namespace Visualisatie
         {
             Spelscherm.Children.Clear();
 
-            int scherm_x = 20;
+            int scherm_x = 20;//start x coordinaat
             int scherm_y = 300; //Print rechtelijntjes
-            int scherm_x2 = 20;
+            int scherm_x2 = 20;//Schuif op
             int scherm_y2 = 10;
             if (Waterskibaan.Game.waterb.p._lijnen.Count > 0)
             {
@@ -108,10 +108,12 @@ namespace Visualisatie
                     Spelscherm.Children.Add(teken);
 
                     Label l = new Label();
-                    Canvas.SetLeft(l, scherm_x2);
-                    Canvas.SetTop(l, scherm_x2 - 13);
+                    Canvas.SetTop(l, scherm_x2);
+                    Canvas.SetLeft(l, scherm_x);
                     l.Content = lijn.Sp.Sporternummer;
                     Spelscherm.Children.Add(l);
+
+                    Label kabel = new Label();
 
                     scherm_x += 20;
                     scherm_x2 += 20;

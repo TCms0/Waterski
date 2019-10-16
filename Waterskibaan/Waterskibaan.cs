@@ -24,19 +24,7 @@ namespace Waterskibaan
         public void VerplaatsKabel()
         {
             p.VerschuifLijnen();
-
-            Lijn q = p.VerwijderLijnVanKabel();
-
-            if (q != null)
-            {
-                for (int i = 0; i < 15; i++)
-                {
-
-
-                    Console.WriteLine(q);
-                    voorraad.LijnToevoegenAanRij(q);
-                }
-            }
+            voorraad.LijnToevoegenAanRij(p.VerwijderLijnVanKabel());
         }
 
         public override string ToString()
