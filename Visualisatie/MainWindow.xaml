@@ -8,11 +8,12 @@
         Title="MainWindow" Height="637.2" Width="1175.6">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="383*"/>
-            <ColumnDefinition Width="370*"/>
-            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="564*"/>
+            <ColumnDefinition Width="508*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="61*"/>
         </Grid.ColumnDefinitions>
-        <Canvas x:Name="Hoofdscherm" HorizontalAlignment="Left" Height="611" Margin="0,0,-378.4,-191" VerticalAlignment="Top" Width="1172" Background="White" Grid.ColumnSpan="3">
+        <Canvas x:Name="Hoofdscherm" HorizontalAlignment="Left" Height="597" Margin="0,0,-2.4,0" VerticalAlignment="Top" Width="1172" Background="White" Grid.ColumnSpan="4">
             <Label Content="Wachtrij" Height="28" Canvas.Left="10" Canvas.Top="389" Width="91"/>
             <Label Content="Wachtrij instructie" Height="28" Canvas.Left="1067" Canvas.Top="389" Width="106"/>
             <Label Content="Instructiegroep" Height="27" Canvas.Left="122" Canvas.Top="390" Width="92"/>
@@ -41,6 +42,8 @@
             </ListBox>
             <Label Content="Rondjes gedaan" Height="26" Canvas.Left="1067" Canvas.Top="118" Width="95"/>
             <ListBox Name="rondjesdone" Height="50" Canvas.Left="1073" Canvas.Top="149" Width="89"/>
+            <Label Content="Unieke moves" Height="28" Canvas.Left="964" Canvas.Top="18" Width="98"/>
+            <ListBox Name="Uniekemove" Height="148" Canvas.Left="964" Canvas.Top="51" Width="98"/>
         </Canvas>
     </Grid>
 </Window>

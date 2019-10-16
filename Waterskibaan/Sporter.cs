@@ -24,7 +24,7 @@ namespace Waterskibaan
         {
             foreach (IMoves m in moves)
             {
-                _aantalPT += m.Moves();
+                _aantalPT += m.Move();
             }
             _Sporternummer++;
             Sporternummer = _Sporternummer;

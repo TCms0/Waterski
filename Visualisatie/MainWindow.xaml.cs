@@ -36,7 +36,7 @@ namespace Visualisatie
             game._OutputStatus = true;
             DispatcherTimer timer = new DispatcherTimer();
             game.Initialize(timer);
-            timer.Interval = TimeSpan.FromSeconds(0.7);
+            timer.Interval = TimeSpan.FromSeconds(0.3);
             timer.Tick += Timer_Tick;
             timer.Start();
             InitializeComponent();
@@ -53,7 +53,10 @@ namespace Visualisatie
             totaalrondjes();
             Highscore();            
             tienlichste();
+            Uniekemoves();
             tekenopdr();
+
+           
         }
         public void TekenwachtrijI()
         {
@@ -110,7 +113,7 @@ namespace Visualisatie
             Spelscherm.Children.Clear();
 
             int scherm_x = 20;//start x coordinaat
-            int scherm_y = 300; //Print rechtelijntjes
+            int scherm_y = 280; //Print rechtelijntjes
             int scherm_x2 = 20;//Schuif op
             int scherm_y2 = 10;
             if (Waterskibaan.Game.waterb.p._lijnen.Count > 0)
@@ -175,6 +178,12 @@ namespace Visualisatie
                     x += 30;
                 }
             }
+        }
+
+        public void Uniekemoves()
+        {
+            Uniekemove.Items.Clear();
+            game.loggerlist.UniekeMoves(Game.waterb.p._lijnen).ForEach(naam => Uniekemove.Items.Add(naam));
         }
 
         public SolidColorBrush SporterKledingKleur(Sporter sp)

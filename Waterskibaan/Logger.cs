@@ -13,8 +13,6 @@ namespace Waterskibaan
         public List<Sporter> bezoekers = new List<Sporter>();
         public Kabel kabel;
         public int bezoekerMetRood = 0;
-        int highscore = 0;
-        int rondesdone = 0;
         public Logger(Kabel k)
         {
             kabel = k;
@@ -48,13 +46,14 @@ namespace Waterskibaan
 
         public int HighScoreSporter()
         {
-            if (totaalBezoekers() > 0)
+            int highscore = 0;
+            for (int i = 0; i < bezoekers.Count; i++)
             {
-                highscore = bezoekers.Max(x => x._aantalPT);
+                highscore = bezoekers.Max(sporter => sporter._aantalPT);
             }
             return highscore;
         }
-        public void AddList(Sporter sp)
+            public void AddList(Sporter sp)
         {
             bezoekers.Add(sp);
             if (ColorsAreClose(sp.KledingKleur, Color.Red))
@@ -82,6 +81,17 @@ namespace Waterskibaan
             return lichtstekleur;
         }
 
+        public List<string> UniekeMoves(LinkedList<Lijn> lijnen)
+        {
+            List<IMoves> tempMoves = new List<IMoves>();
+
+            foreach (Lijn lijn in lijnen)
+            {
+                lijn.Sp.Moves.ForEach(move => tempMoves.Add(move));
+            }
+
+            return tempMoves.Select(move => move.Naam).Distinct().Take(10).ToList();
+        }
     }
 }
 
