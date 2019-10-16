@@ -5,18 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Visualisatie"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="637.2" Width="1175.6">
     <Grid>
-        <Canvas x:Name="Hoofdscherm" HorizontalAlignment="Left" Height="461" Margin="-6,0,-0.4,-41" VerticalAlignment="Top" Width="800" Background="White">
-            <Label Content="Wachtrij" Height="28" Canvas.Left="10" Canvas.Top="322" Width="91"/>
-            <Label Content="Wachtrij instructie" Height="28" Canvas.Left="695" Canvas.Top="313" Width="106"/>
-            <Label Content="Instructiegroep" Height="27" Canvas.Left="122" Canvas.Top="323" Width="92"/>
-            <ListBox Name="wachtlist" Height="105" Canvas.Left="10" Canvas.Top="351" Width="91"/>
-            <ListBox Name="Instrlist" Height="105" Canvas.Left="122" Canvas.Top="351" Width="92"/>
-            <ListBox Name="wachtstartlist" Height="109" Canvas.Left="695" Canvas.Top="342" Width="95"/>
-            <Label Content="Lijnen Beschikbaar" Canvas.Left="267" Canvas.Top="330"/>
-            <Canvas Name="Spelscherm" Height="313" Width="780" Canvas.Left="10"/>
-            <ListBox x:Name="Lijnenbeschikbaar" Height="91" Canvas.Left="267" Canvas.Top="360" Width="107"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="383*"/>
+            <ColumnDefinition Width="370*"/>
+            <ColumnDefinition Width="41*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas x:Name="Hoofdscherm" HorizontalAlignment="Left" Height="611" Margin="0,0,-378.4,-191" VerticalAlignment="Top" Width="1172" Background="White" Grid.ColumnSpan="3">
+            <Label Content="Wachtrij" Height="28" Canvas.Left="10" Canvas.Top="389" Width="91"/>
+            <Label Content="Wachtrij instructie" Height="28" Canvas.Left="1067" Canvas.Top="389" Width="106"/>
+            <Label Content="Instructiegroep" Height="27" Canvas.Left="122" Canvas.Top="390" Width="92"/>
+            <ListBox Name="wachtlist" Height="176" Canvas.Left="10" Canvas.Top="425" Width="91"/>
+            <ListBox Name="Instrlist" Height="176" Canvas.Left="122" Canvas.Top="425" Width="92"/>
+            <ListBox Name="wachtstartlist" Height="167" Canvas.Left="1067" Canvas.Top="434" Width="95"/>
+            <Label Content="Lijnen Beschikbaar" Canvas.Left="267" Canvas.Top="391"/>
+            <Canvas Name="Spelscherm" Height="384" Width="1000" Canvas.Left="10"/>
+            <ListBox x:Name="Lijnenbeschikbaar" Height="176" Canvas.Left="267" Canvas.Top="425" Width="107"/>
+            <Label Content="Aantal Bezoekers" Height="29" Canvas.Left="432" Canvas.Top="391" Width="105" RenderTransformOrigin="0.941,-1.27"/>
+            <ListBox Name="bezoekeraantal" Height="177" Canvas.Left="432" Canvas.Top="425" Width="102" RenderTransformOrigin="0.678,1.823"/>
+            <Label Content="Lichtste Kleur gebruikt:" Height="30" Canvas.Left="599" Canvas.Top="396" Width="150"/>
+            <Canvas Name="Lichstekleur" Height="168" Canvas.Left="599" Canvas.Top="434" Width="68"/>
+            <Label Content="Rode shirts!" Height="28" Canvas.Left="964" Canvas.Top="398" Width="98"/>
+            <ListBox Name="Roodshirtaantal" Height="162" Canvas.Left="964" Canvas.Top="439" Width="98"/>
+            <Label Content="Highscore" Height="26" Canvas.Left="1077" Canvas.Top="10" Width="85"/>
+            <ListBox Name="Highscorevak" Height="58" Canvas.Left="1077" Canvas.Top="43" Width="85" RenderTransformOrigin="0.5,0.5">
+                <ListBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.183"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ListBox.RenderTransform>
+            </ListBox>
+            <Label Content="Rondjes gedaan" Height="26" Canvas.Left="1067" Canvas.Top="118" Width="95"/>
+            <ListBox Name="rondjesdone" Height="50" Canvas.Left="1073" Canvas.Top="149" Width="89"/>
         </Canvas>
     </Grid>
 </Window>

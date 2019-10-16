@@ -10,7 +10,7 @@ namespace Waterskibaan
     public class Sporter
     {
         private readonly Random random = new Random();
-        public int _aantalPT;
+        public int _aantalPT = 0;
         public int AantalRondenNogTeGaan { get; set; }
         public Zwemvest Zwemvest { get; set; }
         public Skies Skies { get; set; }
@@ -40,6 +40,8 @@ namespace Waterskibaan
                 HuidigeMove = Moves[index];
             }
         }
+
+
 
 
     }

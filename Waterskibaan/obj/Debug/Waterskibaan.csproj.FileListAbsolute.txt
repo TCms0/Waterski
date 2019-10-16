@@ -58,3 +58,9 @@ C:\Users\trist\Source\Repos\Waterski4\Waterskibaan\obj\Debug\Waterskibaan.csproj
 C:\Users\trist\Source\Repos\Waterski4\Waterskibaan\obj\Debug\Waterskibaan.csproj.CoreCompileInputs.cache
 C:\Users\trist\Source\Repos\Waterski4\Waterskibaan\obj\Debug\Waterskibaan.exe
 C:\Users\trist\Source\Repos\Waterski4\Waterskibaan\obj\Debug\Waterskibaan.pdb
+C:\Users\Tristan\source\repos\waterski5\Waterskibaan\obj\Debug\Waterskibaan.csprojAssemblyReference.cache
+C:\Users\Tristan\source\repos\waterski5\Waterskibaan\obj\Debug\Waterskibaan.exe
+C:\Users\Tristan\source\repos\waterski5\Waterskibaan\obj\Debug\Waterskibaan.pdb
+C:\Users\Tristan\source\repos\waterski5\Waterskibaan\bin\Debug\Waterskibaan.exe.config
+C:\Users\Tristan\source\repos\waterski5\Waterskibaan\bin\Debug\Waterskibaan.exe
+C:\Users\Tristan\source\repos\waterski5\Waterskibaan\bin\Debug\Waterskibaan.pdb

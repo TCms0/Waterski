@@ -30,6 +30,7 @@ namespace Waterskibaan
         public event InstructieAfgelopenHandler InstructieAfgelopen;
         public event LijnenVerplaatst LijnenVerplaatss;
         public static Waterskibaan waterb = new Waterskibaan();
+        public Logger loggerlist { get; set; }
 
         public void Initialize(DispatcherTimer timer)
         {
@@ -37,6 +38,7 @@ namespace Waterskibaan
             InstructieAfgelopen += OnInstructieGroep;
             LijnenVerplaatss += LijnenVerplaatsen;
             timer.Tick += OnTimedEvent;
+            loggerlist = new Logger(waterb.p);
         }
 
 
@@ -63,6 +65,7 @@ namespace Waterskibaan
         public void OnNieuweBezoeker(NieuweBezoekerArgs e)
         {
             WachtI.SporterNeemPlaatsInRij(e.sp);
+            loggerlist.AddList(e.sp);
 
         }
 
@@ -98,6 +101,9 @@ namespace Waterskibaan
 
                 waterb.SporterStart(Sporterstart);
             }
+
+            
+
         }
         public void OutputStatus()
         {
