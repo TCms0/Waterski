@@ -102,7 +102,7 @@ namespace Waterskibaan
                 waterb.SporterStart(Sporterstart);
             }
 
-            
+
 
         }
         public void OutputStatus()

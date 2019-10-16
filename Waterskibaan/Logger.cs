@@ -53,7 +53,8 @@ namespace Waterskibaan
             }
             return highscore;
         }
-            public void AddList(Sporter sp)
+
+        public void AddList(Sporter sp)
         {
             bezoekers.Add(sp);
             if (ColorsAreClose(sp.KledingKleur, Color.Red))

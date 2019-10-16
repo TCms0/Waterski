@@ -21,11 +21,10 @@ namespace Waterskibaan
                 Random rand = new Random(DateTime.Now.Millisecond);
                 List<IMoves> selectedMoves = new List<IMoves>();
 
-                for (int i = 0; i < Moves.Count ; i++)
+                for (int i = 0; i < Moves.Count; i++)
                 {
                     var index = rand.Next(Moves.Count());
                     selectedMoves.Add(Moves[index]);
-                   Console.WriteLine(Moves[rand.Next(Moves.Count)]);
                 }
 
                 return selectedMoves;
@@ -75,7 +74,7 @@ namespace Waterskibaan
             }
         }
 
-       public class EenBeen : IMoves
+        public class EenBeen : IMoves
         {
             public int MoeilijkheidsGraad { get; set; }
             public int Score { get; set; }

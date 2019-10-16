@@ -11,12 +11,12 @@ namespace Waterskibaan
     {
         public static void Main(string[] args)
         {
-             TestOpdr2();
+            TestOpdr2();
             TestOpdr3();
-             TestOpdr8();
-             TestOpdr10();
-              TestOpdr11();
-           // TestOpdr12();
+            TestOpdr8();
+            TestOpdr10();
+            TestOpdr11();
+            // TestOpdr12();
         }
 
         private static void TestOpdr2()
@@ -68,12 +68,12 @@ namespace Waterskibaan
             s.Skies = new Skies();
 
             waterskibaan.SporterStart(s);
-         /*   foreach (var punt in s.Moves)
-            {
-                Console.WriteLine(punt);
-            }
-    */       
-    Console.WriteLine(s.KledingKleur);
+            /*   foreach (var punt in s.Moves)
+               {
+                   Console.WriteLine(punt);
+               }
+       */
+            Console.WriteLine(s.KledingKleur);
             Console.WriteLine("--------------------------------------------- \n");
 
         }
@@ -100,24 +100,24 @@ namespace Waterskibaan
         private static void TestOpdr11()
         {
             Game game = new Game();
-         //   game.Initialize;
+            //   game.Initialize;
         }
 
         private static void TestOpdr12()
         {
 
-                 DispatcherTimer timer = new DispatcherTimer();
-                Game game = new Game();
-                game.Initialize(timer);
-                timer.Interval = TimeSpan.FromSeconds(1);
-                timer.Tick += timer_Tick;
-                timer.Start();
-                Console.ReadLine();
-            }
-
-            public static void timer_Tick(object sender, EventArgs e)
-            {
-                Console.WriteLine("ttt");
-            }
+            DispatcherTimer timer = new DispatcherTimer();
+            Game game = new Game();
+            game.Initialize(timer);
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
+            Console.ReadLine();
         }
+
+        public static void timer_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine("ttt");
+        }
+    }
 }
