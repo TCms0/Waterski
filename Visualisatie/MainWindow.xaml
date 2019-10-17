@@ -43,7 +43,9 @@
             <Label Content="Rondjes gedaan" Height="26" Canvas.Left="1067" Canvas.Top="118" Width="95"/>
             <ListBox Name="rondjesdone" Height="50" Canvas.Left="1073" Canvas.Top="149" Width="89"/>
             <Label Content="Unieke moves" Height="28" Canvas.Left="964" Canvas.Top="18" Width="98"/>
-            <ListBox Name="Uniekemove" Height="148" Canvas.Left="964" Canvas.Top="51" Width="98"/>
+            <ListBox Name="Uniekemove" Height="93" Canvas.Left="964" Canvas.Top="51" Width="98"/>
+            <Label Content="Actieve Moves" Height="35" Canvas.Left="964" Canvas.Top="164" Width="98"/>
+            <ListBox Name="Actievemoves" Height="93" Canvas.Left="964" Canvas.Top="204" Width="98"/>
         </Canvas>
     </Grid>
 </Window>

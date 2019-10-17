@@ -40,9 +40,5 @@ namespace Waterskibaan
                 HuidigeMove = Moves[index];
             }
         }
-
-
-
-
     }
 }

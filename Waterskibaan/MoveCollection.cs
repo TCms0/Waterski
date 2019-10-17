@@ -37,7 +37,7 @@ namespace Waterskibaan
             public string Naam { get; set; }
             public int Move()
             {
-                Naam = "Jump";
+                Naam = "Sprong";
                 MoeilijkheidsGraad = 50;
                 Random rand = new Random(DateTime.Now.Millisecond);
                 int randomNummer = rand.Next(0, 101);
@@ -81,7 +81,7 @@ namespace Waterskibaan
             public string Naam { get; set; }
             public int Move()
             {
-                Naam = "EenBeen";
+                Naam = "Een been";
                 MoeilijkheidsGraad = 30;
                 Random rand = new Random(DateTime.Now.Millisecond);
                 int randomNummer = rand.Next(0, 101);
@@ -103,7 +103,7 @@ namespace Waterskibaan
             public string Naam { get; set; }
             public int Move()
             {
-                Naam = "EenArm";
+                Naam = "Een Arm los";
                 MoeilijkheidsGraad = 20;
                 Random rand = new Random(DateTime.Now.Millisecond);
                 int randomNummer = rand.Next(0, 101);

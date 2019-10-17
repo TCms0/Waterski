@@ -36,7 +36,7 @@ namespace Visualisatie
             game._OutputStatus = true;
             DispatcherTimer timer = new DispatcherTimer();
             game.Initialize(timer);
-            timer.Interval = TimeSpan.FromSeconds(0.05);
+            timer.Interval = TimeSpan.FromSeconds(0.25);
             timer.Tick += Timer_Tick;
             timer.Start();
             InitializeComponent();
@@ -54,6 +54,7 @@ namespace Visualisatie
             Highscore();
             tienlichste();
             Uniekemoves();
+            Actievemove();
             tekenopdr();
             DrawWaterSkiLanes();
 
@@ -76,6 +77,26 @@ namespace Visualisatie
             {
                 Instrlist.Items.Add("Sporter" + sp.Sporternummer);
 
+            }
+        }
+        public void Actievemove()
+        {
+            Actievemoves.Items.Clear();
+            Actievemoves.Items.Clear();
+            LinkedList<Lijn> _lijnen = new LinkedList<Lijn>();
+            _lijnen = Game.waterb.p._lijnen;
+            foreach (Lijn lijn in _lijnen)
+            {
+                var moves = from sporter
+                            in lijn.Sp.Moves
+                            select sporter.Naam;
+                if (moves.Count() > 0)
+                {
+                    foreach (string move in moves)
+                    {
+                        Actievemoves.Items.Add(move);
+                    }
+                }
             }
         }
         public void totaalrondjes()
@@ -113,7 +134,7 @@ namespace Visualisatie
         {
             int scherm_y5 = 300;//start x coordinaat
             int scherm_x6 = 10;
-                ;
+            ;
             for (var i = 0; i < 10; i++)
             {
 
@@ -128,89 +149,89 @@ namespace Visualisatie
 
             };
         }
-    
-    public void tekenopdr()
-    {
-        Spelscherm.Children.Clear();
 
-        int scherm_x = 20;//start x coordinaat
-        int scherm_y = 280; //Print rechtelijntjes
-        int scherm_x2 = 20;//Schuif op
-        int scherm_y2 = 10;
-        if (Waterskibaan.Game.waterb.p._lijnen.Count > 0)
+        public void tekenopdr()
         {
-            foreach (Lijn lijn in Game.waterb.p._lijnen)
+            Spelscherm.Children.Clear();
+
+            int scherm_x = 20;//start x coordinaat
+            int scherm_y = 280; //Print rechtelijntjes
+            int scherm_x2 = 20;//Schuif op
+            int scherm_y2 = 10;
+            if (Waterskibaan.Game.waterb.p._lijnen.Count > 0)
             {
-                Line teken = new Line();
-                var brush = new SolidColorBrush(Color.FromArgb(lijn.Sp.KledingKleur.A, lijn.Sp.KledingKleur.R, lijn.Sp.KledingKleur.G, lijn.Sp.KledingKleur.B));
-                teken.Stroke = brush;
-                teken.X1 = scherm_x;
-                teken.X2 = scherm_x2;
-                teken.Y1 = scherm_y;
-                teken.Y2 = scherm_y2;
-                teken.StrokeThickness = 2;
-                Spelscherm.Children.Add(teken);
+                foreach (Lijn lijn in Game.waterb.p._lijnen)
+                {
+                    Line teken = new Line();
+                    var brush = new SolidColorBrush(Color.FromArgb(lijn.Sp.KledingKleur.A, lijn.Sp.KledingKleur.R, lijn.Sp.KledingKleur.G, lijn.Sp.KledingKleur.B));
+                    teken.Stroke = brush;
+                    teken.X1 = scherm_x;
+                    teken.X2 = scherm_x2;
+                    teken.Y1 = scherm_y;
+                    teken.Y2 = scherm_y2;
+                    teken.StrokeThickness = 2;
+                    Spelscherm.Children.Add(teken);
 
-                Label l = new Label();
-                Canvas.SetTop(l, scherm_y2);
-                Canvas.SetLeft(l, scherm_x);
-                l.Content = lijn.Sp.Sporternummer;
-                Spelscherm.Children.Add(l);
+                    Label l = new Label();
+                    Canvas.SetTop(l, scherm_y2);
+                    Canvas.SetLeft(l, scherm_x);
+                    l.Content = lijn.Sp.Sporternummer;
+                    Spelscherm.Children.Add(l);
 
-                Label kabel = new Label();
-                scherm_x += 30;
-                scherm_x2 += 30;
+                    Label kabel = new Label();
+                    scherm_x += 30;
+                    scherm_x2 += 30;
+                }
             }
         }
-    }
-    public void roodshirt()
-    {
-        Roodshirtaantal.Items.Clear();
-        Roodshirtaantal.Items.Add(game.loggerlist.bezoekerMetRood);
-    }
-    public void tienlichste()
-    {
-        int x = 0;
-        int y = 0;
-        Lichstekleur.Children.Clear();
-
-        foreach (Sporter sp in game.loggerlist.List10Sporters())
+        public void roodshirt()
         {
-            System.Windows.Shapes.Ellipse lichtstekleur = new System.Windows.Shapes.Ellipse();
+            Roodshirtaantal.Items.Clear();
+            Roodshirtaantal.Items.Add(game.loggerlist.bezoekerMetRood);
+        }
+        public void tienlichste()
+        {
+            int x = 0;
+            int y = 0;
+            Lichstekleur.Children.Clear();
 
-            lichtstekleur.Width = 20;
-            lichtstekleur.Height = 20;
-            lichtstekleur.Fill = SporterKledingKleur(sp);
-
-            Canvas.SetLeft(lichtstekleur, x);
-            Canvas.SetLeft(lichtstekleur, y);
-
-            Lichstekleur.Children.Add(lichtstekleur);
-            if (x < 200)
+            foreach (Sporter sp in game.loggerlist.List10Sporters())
             {
-                x = 0;
-                y += 30;
-            }
-            else
-            {
-                x += 30;
+                System.Windows.Shapes.Ellipse lichtstekleur = new System.Windows.Shapes.Ellipse();
+
+                lichtstekleur.Width = 20;
+                lichtstekleur.Height = 20;
+                lichtstekleur.Fill = SporterKledingKleur(sp);
+
+                Canvas.SetLeft(lichtstekleur, x);
+                Canvas.SetLeft(lichtstekleur, y);
+
+                Lichstekleur.Children.Add(lichtstekleur);
+                if (x < 200)
+                {
+                    x = 0;
+                    y += 30;
+                }
+                else
+                {
+                    x += 30;
+                }
             }
         }
-    }
 
-    public void Uniekemoves()
-    {
-        Uniekemove.Items.Clear();
-        game.loggerlist.UniekeMoves(Game.waterb.p._lijnen).ForEach(naam => Uniekemove.Items.Add(naam));
-    }
+        public void Uniekemoves()
+        {
+            Uniekemove.Items.Clear();
+            game.loggerlist.UniekeMoves(Game.waterb.p._lijnen).ForEach(naam => Uniekemove.Items.Add(naam));
+        }
 
-    public SolidColorBrush SporterKledingKleur(Sporter sp)
-    {
-        SolidColorBrush kleur = new SolidColorBrush();
-        kleur.Color = System.Windows.Media.Color.FromArgb(sp.KledingKleur.A, sp.KledingKleur.R, sp.KledingKleur.G, sp.KledingKleur.B);
-        return kleur;
+        public SolidColorBrush SporterKledingKleur(Sporter sp)
+        {
+            SolidColorBrush kleur = new SolidColorBrush();
+            kleur.Color = System.Windows.Media.Color.FromArgb(sp.KledingKleur.A, sp.KledingKleur.R, sp.KledingKleur.G, sp.KledingKleur.B);
+            return kleur;
+        }
     }
-}
 }
 
 
